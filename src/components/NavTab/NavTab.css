@@ -1,0 +1,30 @@
+.nav-tab {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-tab__btn {
+  padding: 10px 0;
+  width: 96px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #fff;
+  /* По мне цвет попался очень неудачный, кнопки плохо видны на фоне поэтому выбрал черный */
+  /* вместо background-color: #E8E8E8; */
+  background-color: #000;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .nav-tab__btn {
+    padding: 5px 0;
+    width: 82px;
+    font-size: 10px;
+  }
+}

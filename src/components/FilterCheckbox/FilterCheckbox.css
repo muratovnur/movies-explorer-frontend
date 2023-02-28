@@ -1,0 +1,26 @@
+.filter-checkbox {
+  padding: 26px 0 43px;
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #AAAAAA40;
+}
+
+.filter-checbox__icon {
+  width: 36px;
+  height: 20px;
+  background: url('../../images/icon-smalltumb.svg') no-repeat center;
+  margin-right: 14px;
+  cursor: pointer;
+}
+
+.filter-checkbox__name {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 480px) {
+  .filter-checkbox__name {
+    font-size: 11px;
+  }
+}

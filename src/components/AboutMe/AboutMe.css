@@ -117,7 +117,8 @@
   
   .about-me__main {
     flex-direction: column;
-    margin: 89px 14px 70px;
+    margin: 60px 14px 70px;
+    gap: 0;
   }
   
   .about-me__main-title {

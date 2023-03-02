@@ -3,14 +3,15 @@ import Navigation from '../Navigation/Navigation'
 import Logo from '../Logo/Logo'
 import './Header.css'
 import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 const Header = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-
+  let location = useLocation();
+  
   return (
     <header className="header">
       <Logo />
-      {loggedIn ? <Navigation /> : 
+      {location.pathname !== '/' ? <Navigation /> : 
         (
           <div className='header__auth'>
             <Link to="/signup"><button className='header__register-btn button-hover-transition'>Регистрация</button></Link>

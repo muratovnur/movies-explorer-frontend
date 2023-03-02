@@ -114,7 +114,9 @@
 @media screen and (max-width: 580px) {
   .about-project__title {
     margin: 70px 18px 0;
-    padding: 0 0 22px;
+    padding: 0 0 28px;
+    font-size: 18px;
+    line-height: 22px;
   }
   
   .about-project__main {

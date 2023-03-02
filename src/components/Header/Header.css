@@ -26,7 +26,8 @@
 }
 
 .header__login-btn {
-  padding: 8px 20px;
+  padding: 8px 0;
+  width: 76px;
   color: #fff;
   font-weight: 500;
   font-size: 12px;
@@ -47,5 +48,18 @@
 @media screen and (max-width: 480px) {
   .header {
     padding: 18px 14px;
+  }
+
+  .header__register-btn {
+    margin-right: 14px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .header__login-btn {
+    padding: 5px 0;
+    width: 54px;
+    font-size: 10px;
+    line-height: 16px;
   }
 }

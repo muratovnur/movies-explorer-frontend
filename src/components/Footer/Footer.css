@@ -62,12 +62,18 @@
 @media screen and (max-width: 480px) {
   .footer__info {
     margin: 79px 10px 30px;
+    font-size: 12px;
+    line-height: 15px;
   }
 
   .footer__list {
-    
     flex-direction: column;
     gap: 12px;
+  }
+
+  .footer__list-item {
+    font-size: 12px;
+    line-height: 15px;
   }
 
   .footer__list-item:first-child {

@@ -11,15 +11,27 @@ const Login = () => {
         <h1 className="form__title">Рады видеть!</h1>
         <label className="form__input-label">
           Email
-          <input type="email" name="email" className="form__input" />
+          <input 
+            type="email" 
+            name="email" 
+            className="form__input" 
+            placeholder="Email" 
+            required={true}
+          />
           <span className="form__input-error"></span>
         </label>
         <label className="form__input-label">
           Пароль
-          <input type="password" name="password" className="form__input" />
-          <span className="form__input-error-message"></span>
+          <input 
+            type="password" 
+            name="password" 
+            className="form__input" 
+            placeholder="Пароль" 
+            required={true}
+          />
+          <span className="form__input-error"></span>
         </label>
-        <button className="form__submit-btn button-hover-transition">Войти</button>
+        <button className="form__submit-btn form__submit-btn_login button-hover-transition">Войти</button>
         <span className="form__option-text">Ещё не зарегистрированы? <Link to="/signup" className="form__option-link hover-transition">Регистрация</Link></span>
       </form>
     </div>

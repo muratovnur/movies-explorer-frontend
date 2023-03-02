@@ -14,11 +14,13 @@
 
 .movies-card-list__more {
   display: flex;
+  min-height: 140px;
   align-items: center;
   justify-content: center;
 }
 
 .movies-card-list__more-btn {
+  margin: 50px 0 80px;
   padding: 9px 0;
   width: 320px;
   height: 36px;

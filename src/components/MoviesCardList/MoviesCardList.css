@@ -12,6 +12,15 @@
   gap: 30px 24px;
 }
 
+.movies-card-list__error {
+  width: 100%;
+  display: block;
+  font-weight: 500;
+  font-size: 23px;
+  line-height: 29px;
+  text-align: center;
+}
+
 .movies-card-list__more {
   display: flex;
   min-height: 140px;

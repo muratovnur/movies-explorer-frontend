@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header className="header">
       <Logo />
-      {location.pathname !== '/' ? <Navigation /> : 
+      {localStorage.getItem('userId') ? <Navigation /> : 
         (
           <div className='header__auth'>
             <Link to="/signup"><button className='header__register-btn button-hover-transition'>Регистрация</button></Link>

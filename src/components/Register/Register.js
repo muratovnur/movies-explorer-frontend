@@ -1,9 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useFormWithValidation } from '../../customHooks/useFormWithValidation'
 import Logo from '../Logo/Logo'
+
 import './Register.css'
 
-const Register = () => {
+const Register = (props) => {
+  const [submitErrorMessage, setSubmitErrorMessage] = useState('');
+  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    
+    props.onRegister(values['email'], values['password'], values['name'])
+      .then((err) => {
+        if (err) {
+          if (err.status === 409) {
+            setSubmitErrorMessage('Пользователь с таким email уже существует.');
+          }
+          else {
+            setSubmitErrorMessage('При регистрации пользователя произошла ошибка.');
+          }
+        }
+      })
+    resetForm();
+  }
   return (
     <div className="register">
       <form className="form">
@@ -17,8 +38,10 @@ const Register = () => {
             className="form__input"
             placeholder="Имя"
             required={true}
+            onChange={handleChange}
+            pattern="^[A-Za-zА-Яа-я\s-]+$"
           />
-          <span className="form__input-error"></span>
+          <span className="form__input-error">{errors['name']}</span>
         </label>
         <label className="form__input-label">
           Email
@@ -28,8 +51,9 @@ const Register = () => {
             className="form__input" 
             placeholder="Email"
             required={true}
+            onChange={handleChange}
           />
-          <span className="form__input-error"></span>
+          <span className="form__input-error">{errors['email']}</span>
         </label>
         <label className="form__input-label">
           Пароль
@@ -39,10 +63,12 @@ const Register = () => {
             className="form__input form__input_error"
             placeholder="Пароль"
             required={true}
+            onChange={handleChange}
           />
-          <span className="form__input-error">Что-то пошло не так...</span>
+          <span className="form__input-error">{errors['password']}</span>
         </label>
-        <button className="form__submit-btn button-hover-transition">Зарегистрироваться</button>
+        <span className="form__submit-error">{submitErrorMessage}</span>
+        <button disabled={!isValid} className="form__submit-btn button-hover-transition" onClick={handleSubmit}>Зарегистрироваться</button>
         <span className="form__option-text">Уже зарегистрированы? <Link to="/signin" className="form__option-link hover-transition">Войти</Link></span>
       </form>
     </div>

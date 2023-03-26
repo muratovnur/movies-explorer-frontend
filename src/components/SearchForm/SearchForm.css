@@ -27,6 +27,14 @@
   color: #A0A0A0;
 }
 
+.search-form__input_error {
+  border: 1.5px solid #FF4062;
+}
+
+.search-form__input_error::placeholder {
+  color: #FF4062;
+}
+
 .search-form__btn {
   position: absolute;
   top: 80px;

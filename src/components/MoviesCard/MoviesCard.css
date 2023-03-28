@@ -1,5 +1,6 @@
 .movies-card {
   width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
@@ -25,6 +26,9 @@
   font-size: 15px;
   line-height: 18px;
   max-width: calc(100% - 30px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow:hidden
 }
 
 .movies-card__duration {
@@ -48,7 +52,6 @@
   /* с background-color: #F9F9F9; иконку очень плохо видно в неактивном состояний */
   background-color: #A0A0A0;
   border-radius: 50%;
-  z-index: 1;
   transition: opacity .3s ease-in-out;
   cursor: pointer;
 }

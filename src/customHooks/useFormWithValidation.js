@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 
 //хук управления формой и валидации формы
-export function useFormWithValidation(initialValues) {
+export function useFormWithValidation(initialValues = {}) {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(false);
@@ -10,6 +10,7 @@ export function useFormWithValidation(initialValues) {
     const target = event.target;
     const name = target.name;
     const value = target.value;
+    const newValues = {...values, [name]: value}
 
     if(target["name"] === "name" && target.validity.patternMismatch) { 
       target.setCustomValidity('Поле может содержать только латиницу, кириллицу, пробел или дефис.')
@@ -17,9 +18,10 @@ export function useFormWithValidation(initialValues) {
     else if(target["name"] === "name" && !target.validity.patternMismatch) { 
       target.setCustomValidity('')
     }
-    setValues({...values, [name]: value});
+
+    setValues(newValues);
     setErrors({...errors, [name]: target.validationMessage });
-    setIsValid(target.closest("form").checkValidity());
+    setIsValid((newValues.name !== initialValues.name || newValues.email !== initialValues.email) && target.closest("form").checkValidity())
   };
 
   const resetForm = useCallback(

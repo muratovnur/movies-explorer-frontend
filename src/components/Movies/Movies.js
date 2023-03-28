@@ -2,7 +2,7 @@ import { useState } from 'react'
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
-import moviesApi from '../../utils/MoviesApi'
+
 
 const Movies = (props) => {
   const [movies, setMovies] = useState(JSON.parse(localStorage.getItem('searchResult')) || []);
@@ -13,29 +13,30 @@ const Movies = (props) => {
   const [shorts, setShorts] = useState(localStorage.getItem('shorts') === 'true');
 
 
-  function searchMovies(searchInput, shorts) {
+  async function searchMovies(searchInput, shorts) {
     setPreloaderActive(true);
+    let allMovies = props.allMovies;
+
+    if (!allMovies.length) {
+      allMovies = await props.getAllMovies()
+
+      if (!allMovies.length) {
+        setErrorOccured(true);
+      }
+    }
+    const searchResult = shorts ? allMovies.filter((m) => m.nameRU.match(new RegExp(searchInput, 'i')) && m.duration <= 40)
+    : allMovies.filter((m) => m.nameRU.match(new RegExp(searchInput, 'i')))
     
-    moviesApi().then(res => {
-      let searchResult;
-      
-      searchResult = shorts ? res.filter((m) => m.nameRU.match(new RegExp(searchInput, 'i')) && m.duration <= 40)
-      : res.filter((m) => m.nameRU.match(new RegExp(searchInput, 'i')))
-      
-      setMovies(searchResult);
-      setPreloaderActive(false);
-      setSearchCompleted(true);
+    setMovies(searchResult);
+    setPreloaderActive(false);
+    setSearchCompleted(true);
 
-      localStorage.setItem('shorts', shorts);
-      localStorage.setItem('searchInput', searchInput);
-      localStorage.setItem('searchResult', JSON.stringify(searchResult));
-    })
-    .catch((err) => {
-      console.log(err);
-      setErrorOccured(true);
-    })
+    localStorage.setItem('shorts', shorts);
+    localStorage.setItem('searchInput', searchInput);
+    localStorage.setItem('searchResult', JSON.stringify(searchResult));
+    localStorage.setItem('allMovies', JSON.stringify(allMovies));
   }
-
+  
   return (
     <>
       <SearchForm searchMovies={searchMovies} searchInput={searchInput} shorts={shorts}/>

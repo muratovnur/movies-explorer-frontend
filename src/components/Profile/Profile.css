@@ -46,7 +46,7 @@
 }
 
 .profile__edit {
-  margin: 220px 0 16px;
+  margin: 0 0 16px;
   padding: 0;
   font-weight: 400;
   font-size: 13px;
@@ -109,16 +109,21 @@
   border-bottom: 1px solid #E8E8E8;
 }
 
-.profile-form__submit-error {
+.profile-form__submit-message {
+  margin: 190px auto 20px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #2BE080;
+}
+
+.profile-form__submit-message_error {
   margin: 188px auto 20px;
   padding-bottom: 7px;
   display: block;
   max-width: 410px;
   min-height: 10px;
-  text-align: center;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
   color: #FF4062;
 }
 
@@ -148,10 +153,6 @@
   .profile__title {
     margin: 238px 0 96px;
   }
-
-  .profile__fields-list {
-    margin: 0 0 210px;
-  }
 }
 
 @media screen and (max-width: 480px){
@@ -169,10 +170,6 @@
 
   .profile__title {
     margin: 70px 0 80px;
-  }
-
-  .profile__fields-list {
-    margin: 0 0 380px;
   }
 
   .profile-form__input-label {

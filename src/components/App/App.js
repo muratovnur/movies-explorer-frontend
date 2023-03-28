@@ -12,14 +12,16 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Layout from '../Layout/Layout';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import mainApi from '../../utils/MainApi';
+import moviesApi from '../../utils/MoviesApi'
 
 import './App.css';
 
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('user')) || {});
   const [loggedIn, setLoggedIn] = useState(Boolean(localStorage.getItem('userId')));
   const [savedMovies, setSavedMovies] = useState(JSON.parse(localStorage.getItem('savedMovies')) || []);
+  const [allMovies, setAllMovies] = useState(JSON.parse(localStorage.getItem('allMovies')) || []);
     
   let navigate = useNavigate();
 
@@ -27,13 +29,10 @@ function App() {
   useEffect(() => {
     mainApi.getUserProfileInfo()
       .then((res) => {
-        setLoggedIn(true);
-        setCurrentUser(res);
-        console.log('success checking');
+        console.log('authorization successful');
       })
       .catch((err) => {
-        // localStorage.removeItem('userId');
-        console.log(err);
+        console.log('Error on user token verification attempt', err);
         localStorage.clear();
         setLoggedIn(false);
         setCurrentUser({});
@@ -54,6 +53,8 @@ function App() {
     return mainApi.login(email, password)
       .then((res) => {
         localStorage.setItem('userId', res._id);
+        localStorage.setItem('user', JSON.stringify(res));
+
         setLoggedIn(true);
         setCurrentUser(res);
         navigate('/movies');
@@ -78,7 +79,18 @@ function App() {
       setSavedMovies(res);
       localStorage.setItem('savedMovies', JSON.stringify(res));
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log('Error fetching saved movies',err))
+  }
+
+  function getAllMovies() {
+    return moviesApi().then(res => {
+      setAllMovies(res);
+      return res;
+    })
+    .catch(err => {
+      console.log('Error fetching all movies', err);
+      return [];
+    })
   }
 
   function onSaveMovie(movie, currentUser) {
@@ -87,7 +99,7 @@ function App() {
         setSavedMovies(prev => [...prev, res])
       })
       .catch((err) => {
-        console.log('Такая ошибка ',err);
+        console.log('Error on save movie attempt',err);
       })
   }
 
@@ -97,12 +109,13 @@ function App() {
         setSavedMovies(prev => prev.filter(m => m.movieId !== res.movieId))
       })
       .catch((err) => {
-        console.log('Такая ошибка удаление',err);
+        console.log('Error on delete movie attempt',err);
       })
   }
 
   function handleCurrentUserChange(currentUser) {
     setCurrentUser(currentUser)
+    localStorage.setItem('user', JSON.stringify(currentUser));
   }
 
   return (
@@ -119,6 +132,8 @@ function App() {
                 savedMovies={savedMovies}
                 onSaveMovie={onSaveMovie}
                 onDeleteMovie={onDeleteMovie}
+                getAllMovies={getAllMovies}
+                allMovies={allMovies}
               />}
             />
             <Route 
@@ -141,8 +156,8 @@ function App() {
               />}
             />
           </Route>
-          <Route path='/signin' element={<Login onLogin={onLogin} />} />
-          <Route path='/signup' element={<Register onRegister={onRegister} />} />
+          <Route path='/signin' element={<Login onLogin={onLogin} loggedIn={loggedIn} />} />
+          <Route path='/signup' element={<Register onRegister={onRegister} loggedIn={loggedIn} />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </div>

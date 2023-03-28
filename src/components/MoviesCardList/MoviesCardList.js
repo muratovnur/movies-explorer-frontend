@@ -10,15 +10,20 @@ const MoviesCardList = (props) => {
   const [initialSize, setInitialSize] = useState();
   const [rowSize, setRowSize] = useState();
   const [showMoreButton, setShowMoreButton] = useState(false);
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+   setMovies(props.movies)
+  })
   
   useEffect(() => {
-    if (props.movies && props.movies.length > initialSize) {
+    if (movies && movies.length > initialSize) {
       setShowMoreButton(true);
     }
     else {
       setShowMoreButton(false);
     }
-  }, [initialSize])
+  }, [initialSize, movies])
 
   useEffect(() => {
     let timeout;
@@ -57,12 +62,12 @@ const MoviesCardList = (props) => {
     <section className="movies-card-list">
       {location.pathname === '/movies' ? (
         <>
-          {props.searchCompleted && props.movies.length === 0 && <span className="movies-card-list__error">Ничего не найдено</span>}
+          {props.searchCompleted && props.movies.length === 0 && !props.errorOccured && <span className="movies-card-list__error">Ничего не найдено</span>}
           {props.searchCompleted && props.errorOccured && <span className="movies-card-list__error">Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</span>}
           <div className="movies-card-list__container">
             {props.movies && props.movies.slice(0, initialSize).map((movie) => {
+              // Если карточка есть в сохранённых передать данные сохранённой карточки
               let savedMovie;
-
               if (props.savedMovies) {
                 savedMovie = props.savedMovies.find(m => m.movieId === movie.id);
               }

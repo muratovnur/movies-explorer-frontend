@@ -72,6 +72,7 @@ const MoviesCardList = (props) => {
               if (props.savedMovies) {
                 savedMovie = props.savedMovies.find(m => m.movieId === movie.id);
               }
+              
               return <MoviesCard 
                 movie={movie} 
                 savedMovie={savedMovie}

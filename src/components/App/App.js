@@ -97,7 +97,10 @@ function App() {
   function onSaveMovie(movie, currentUser) {
     mainApi.saveMovie(movie, currentUser)
       .then((res) => {
-        setSavedMovies(prev => [...prev, res])
+        const newSavedMovies = [...savedMovies, res]
+
+        setSavedMovies(newSavedMovies)
+        localStorage.setItem('savedMovies', JSON.stringify(newSavedMovies));
       })
       .catch((err) => {
         console.log('Error on save movie attempt',err);
@@ -107,7 +110,10 @@ function App() {
   function onDeleteMovie(movieId) {
     return mainApi.deleteMovie(movieId)
       .then((res) => {
-        setSavedMovies(prev => prev.filter(m => m.movieId !== res.movieId))
+        const newSavedMovies = savedMovies.filter(m => m.movieId !== res.movieId);
+
+        setSavedMovies(newSavedMovies)
+        localStorage.setItem('savedMovies', JSON.stringify(newSavedMovies));
       })
       .catch((err) => {
         console.log('Error on delete movie attempt',err);

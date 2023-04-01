@@ -57,6 +57,7 @@ function App() {
 
         setLoggedIn(true);
         setCurrentUser(res);
+        getSavedMovies();
         navigate('/movies');
       })
       .catch((err) => err)

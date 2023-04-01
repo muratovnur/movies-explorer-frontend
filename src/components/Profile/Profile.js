@@ -66,7 +66,7 @@ const Profile = (props) => {
                 placeholder="Имя"
                 required={true}
                 onChange={handleChange}
-                pattern="^[A-Za-zА-Яа-я\s-]+$"
+                pattern="^[A-Za-zА-Яа-я\s-]{2,30}$"
                 value={values["name"]}
               />
             </label>
@@ -81,6 +81,7 @@ const Profile = (props) => {
                 required={true}
                 onChange={handleChange}
                 value={values["email"]}
+                pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
               />
             </label>
             <span className="profile-form__input-error">{errors['email']}</span>

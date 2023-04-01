@@ -42,7 +42,7 @@ const Register = (props) => {
                 placeholder="Имя"
                 required={true}
                 onChange={handleChange}
-                pattern="^[A-Za-zА-Яа-я\s-]+$"
+                pattern="^[A-Za-zА-Яа-я\s-]{2,30}$"
               />
               <span className="form__input-error">{errors['name']}</span>
             </label>
@@ -55,6 +55,7 @@ const Register = (props) => {
                 placeholder="Email"
                 required={true}
                 onChange={handleChange}
+                pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
               />
               <span className="form__input-error">{errors['email']}</span>
             </label>

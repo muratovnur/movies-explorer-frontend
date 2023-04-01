@@ -68,6 +68,7 @@ const MoviesCardList = (props) => {
             {props.movies && props.movies.slice(0, initialSize).map((movie) => {
               // Если карточка есть в сохранённых передать данные сохранённой карточки
               let savedMovie;
+              
               if (props.savedMovies) {
                 savedMovie = props.savedMovies.find(m => m.movieId === movie.id);
               }

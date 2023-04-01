@@ -13,9 +13,16 @@ export function useFormWithValidation(initialValues = {}) {
     const newValues = {...values, [name]: value}
 
     if(target["name"] === "name" && target.validity.patternMismatch) { 
-      target.setCustomValidity('Поле может содержать только латиницу, кириллицу, пробел или дефис.')
+      target.setCustomValidity('Имя должно быть длиной от 2 до 30 символов и содержать только латиницу, кириллицу, пробел или дефис.')
     }
     else if(target["name"] === "name" && !target.validity.patternMismatch) { 
+      target.setCustomValidity('')
+    }
+
+    if(target["name"] === "email" && target.validity.patternMismatch) { 
+      target.setCustomValidity('Введите данные в формате: test@example.ru')
+    }
+    else if(target["name"] === "email" && !target.validity.patternMismatch) { 
       target.setCustomValidity('')
     }
 

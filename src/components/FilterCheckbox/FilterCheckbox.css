@@ -5,12 +5,16 @@
   border-bottom: 1px solid #AAAAAA40;
 }
 
-.filter-checbox__icon {
+.filter-checkbox__icon {
   width: 36px;
   height: 20px;
-  background: url('../../images/icon-smalltumb.svg') no-repeat center;
+  background: url('../../images/icon-smalltumb-off.svg') no-repeat center;
   margin-right: 14px;
   cursor: pointer;
+}
+
+.filter-checkbox__icon_active {
+  background-image: url('../../images/icon-smalltumb.svg');
 }
 
 .filter-checkbox__name {

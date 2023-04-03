@@ -1,15 +1,17 @@
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 
 const Layout = () => {
+  let location = useLocation();
+  
   return (
     <>
       <Header />
       <main>
         <Outlet />
       </main>
-      <Footer />
+      {location.pathname !== '/profile' && <Footer />}
     </>
   )
 }

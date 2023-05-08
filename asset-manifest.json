@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.68e35d67.css",
-    "main.js": "/static/js/main.0de9d289.js",
-    "static/media/Inter-Medium.woff": "/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
-    "static/media/Inter-Black.woff": "/static/media/Inter-Black.c6938660eec019fefd68.woff",
-    "static/media/Inter-Regular.woff": "/static/media/Inter-Regular.8c206db99195777c6769.woff",
-    "static/media/Inter-Medium.woff2": "/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
-    "static/media/Inter-Black.woff2": "/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
-    "static/media/Inter-Regular.woff2": "/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
-    "static/media/logo.svg": "/static/media/logo.e8d6d3e10b8f14e67f9b.svg",
-    "static/media/icon-account.svg": "/static/media/icon-account.a80c98f47813ebb78e81.svg",
-    "index.html": "/index.html",
-    "static/media/icon-close-small.svg": "/static/media/icon-close-small.887874397944f9fbbb15.svg",
-    "static/media/icon-burger-menu.svg": "/static/media/icon-burger-menu.08035af1e508cd8cfed5.svg",
-    "static/media/icon-bookmark.svg": "/static/media/icon-bookmark.b3917aaa7195bca16ee4.svg",
-    "static/media/icon-close.svg": "/static/media/icon-close.80dfd5bd01b8fe0a895e.svg",
-    "static/media/icon-smalltumb-off.svg": "/static/media/icon-smalltumb-off.9dd01b250d8392f781aa.svg",
-    "static/media/icon-smalltumb.svg": "/static/media/icon-smalltumb.6d7778fdc49f207e8166.svg",
-    "main.68e35d67.css.map": "/static/css/main.68e35d67.css.map",
-    "main.0de9d289.js.map": "/static/js/main.0de9d289.js.map"
+    "main.css": "/movies-explorer-frontend/static/css/main.ecb57328.css",
+    "main.js": "/movies-explorer-frontend/static/js/main.0de9d289.js",
+    "static/media/Inter-Medium.woff": "/movies-explorer-frontend/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Black.woff": "/movies-explorer-frontend/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff": "/movies-explorer-frontend/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2": "/movies-explorer-frontend/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Black.woff2": "/movies-explorer-frontend/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2": "/movies-explorer-frontend/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/logo.svg": "/movies-explorer-frontend/static/media/logo.e8d6d3e10b8f14e67f9b.svg",
+    "static/media/icon-account.svg": "/movies-explorer-frontend/static/media/icon-account.a80c98f47813ebb78e81.svg",
+    "index.html": "/movies-explorer-frontend/index.html",
+    "static/media/icon-close-small.svg": "/movies-explorer-frontend/static/media/icon-close-small.887874397944f9fbbb15.svg",
+    "static/media/icon-burger-menu.svg": "/movies-explorer-frontend/static/media/icon-burger-menu.08035af1e508cd8cfed5.svg",
+    "static/media/icon-bookmark.svg": "/movies-explorer-frontend/static/media/icon-bookmark.b3917aaa7195bca16ee4.svg",
+    "static/media/icon-close.svg": "/movies-explorer-frontend/static/media/icon-close.80dfd5bd01b8fe0a895e.svg",
+    "static/media/icon-smalltumb-off.svg": "/movies-explorer-frontend/static/media/icon-smalltumb-off.9dd01b250d8392f781aa.svg",
+    "static/media/icon-smalltumb.svg": "/movies-explorer-frontend/static/media/icon-smalltumb.6d7778fdc49f207e8166.svg",
+    "main.ecb57328.css.map": "/movies-explorer-frontend/static/css/main.ecb57328.css.map",
+    "main.0de9d289.js.map": "/movies-explorer-frontend/static/js/main.0de9d289.js.map"
   },
   "entrypoints": [
-    "static/css/main.68e35d67.css",
+    "static/css/main.ecb57328.css",
     "static/js/main.0de9d289.js"
   ]
 }

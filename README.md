@@ -1,7 +1,5 @@
-Ссылка на фронтенд: https://movielib.nurbol.nomoredomains.work/
-Api: https://api.movielib.nurbol.nomoredomains.work/
+Diploma work for Yandex Practicum.
 
-Ссылка на макет Figma: https://drive.google.com/drive/folders/10xgsXlPa-Vd7vhnHECXFXw2pN1gS5g2K?usp=sharing
+Project available at: https://movies-explorer-a4812.web.app/
 
-
-Ссылка на пул реквест: https://github.com/muratovnur/movies-explorer-frontend/pull/2
+Based on Figma project from Yandex Practicum: https://drive.google.com/drive/folders/10xgsXlPa-Vd7vhnHECXFXw2pN1gS5g2K?usp=sharing
